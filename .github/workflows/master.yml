@@ -22,7 +22,17 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
-
+      - name: Show contents of the current working directory
+        run: ls -la
+      - name: Show contents of the target directory
+        run: ls -la target
+      # - name: Copy Target to Directory
+      # - run: mkdir staging && cp target/*.jar staging
+      #   - uses: actions/upload-artifact@v4.4.3
+      #     with:
+      #       name: Package
+      #       path: staging
+      
       - name: Login no Docker Hub
         uses: docker/login-action@v3
         with:

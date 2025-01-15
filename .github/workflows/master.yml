@@ -60,11 +60,12 @@ jobs:
           aws-region: us-east-2
 
       - name: Configuraçã do Kubeconfig
-        run : aws eks update-kubeconfig --name (***)
-        uses: Azure/k8s-deploy@v5.0.1
+        run : aws eks update-kubeconfig --name eks-pauta
+      - uses: Azure/k8s-deploy@v5.0.1
         with:
           manifests: |
+              ./k8s/services.yaml
               ./k8s/deployment.yaml
-              k8s/mongo.yaml
+              ./k8s/mongo.yaml
           images: |
-          davilopess/pauta-api:1.0.${{ github.run_number }}
+            davilopess/pauta-api:1.0.${{ github.run_number }}

@@ -1,16 +1,3 @@
-# ... Service YAML definition
-apiVersion: v1
-kind: Service
-metadata:
-  name: pauta-api
-spec:
-  selector:
-    app: pauta-api
-  ports:
-    - port: 80
-      targetPort: 8080
-      nodePort: 30000
-  type: NodePort
 # ... Deployment YAML definition
 apiVersion: apps/v1
 kind: Deployment
@@ -33,7 +20,7 @@ spec:
             - containerPort: 8080
           env:
             - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
+              value: mongodb+srv://davilopesamorim56:LtOWFJFVnMpbshdH@pauta.2gdia.mongodb.net/?retryWrites=true&w=majority&appName=Pauta
           imagePullPolicy: Always
 
 

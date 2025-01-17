@@ -66,6 +66,5 @@ jobs:
           manifests: |
               ./k8s/service.yaml
               ./k8s/deployment.yaml
-              ./k8s/mongo.yaml
           images: |
             davilopess/pauta-api:1.0.${{ github.run_number }}

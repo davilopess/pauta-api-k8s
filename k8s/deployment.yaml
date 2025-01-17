@@ -20,7 +20,7 @@ spec:
             - containerPort: 8080
           env:
             - name: MONGO_URL
-              value: mongodb://mongo:27017/dev
+              value: mongodb+srv://davilopesamorim56:LtOWFJFVnMpbshdH@pauta.2gdia.mongodb.net/?retryWrites=true&w=majority&appName=Pauta
           imagePullPolicy: Always
 
 

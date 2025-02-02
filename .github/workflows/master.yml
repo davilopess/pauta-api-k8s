@@ -59,7 +59,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Configuraçã do Kubeconfig
+      - name: Criar Secret no Kubernetes com variável do GitHub Actions
+        run: |
+          kubectl delete secret mongo-uri-secret --ignore-not-found
+          kubectl create secret generic mongo-uri-secret --from-literal=MONGO_URI=${{ secrets.MONGO_URI }}
+
+      - name: Configuração do Kubeconfig
         run : aws eks update-kubeconfig --name eks-pauta
       - uses: Azure/k8s-deploy@v5.0.1
         with:

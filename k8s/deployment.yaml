@@ -19,8 +19,11 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: MONGO_URL
-              value: mongodb+srv://davilopesamorim56:LtOWFJFVnMpbshdH@pauta.2gdia.mongodb.net/?retryWrites=true&w=majority&appName=Pauta
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-uri-secret
+                  key: MONGO_URI 
           imagePullPolicy: Always
 
 

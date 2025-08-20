@@ -59,7 +59,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Criar Secret no Kubernetes com variável do GitHub Actions
+      - name: Criar Secret no Kubernetes com Mongo variável do GitHub Actions
         run: |
           kubectl delete secret mongo-uri-secret --ignore-not-found
           kubectl create secret generic mongo-uri-secret --from-literal=MONGO_URI=${{ secrets.MONGO_URI }}

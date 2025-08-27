@@ -51,7 +51,7 @@ public class SessaoServiceImpl implements SessaoService {
         Pauta pauta = pautaRepository.findById(votoDTO.getPautaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Pauta nao informada para esse ID!"));
 
-        validateVoteInSession(pauta, votoDTO.getAssociadoCpf());
+//        validateVoteInSession(pauta, votoDTO.getAssociadoCpf());
         Voto voto = new Voto();
         voto.setVoto(votoDTO.getVoto());
         voto.setAssociadoCpf(votoDTO.getAssociadoCpf());

@@ -12,9 +12,7 @@ public class ValidarCpfImpl implements ValidarCpf {
     @Override
     public boolean validar(String cpf) {
         String uri = "https://user-info.herokuapp.com/users/{cpf}";
-        RestTemplate restTemplate = new RestTemplateBuilder()
-                .errorHandler(new RestTemplateResponseErrorHandler())
-                .build();
+        RestTemplate restTemplate = new RestTemplate();
 
        CpfResponseDTO result = restTemplate.getForObject(uri, CpfResponseDTO.class, cpf);
 

@@ -77,6 +77,7 @@ public class SessaoServiceImpl implements SessaoService {
     public boolean validateVoteInSession(Pauta pauta, String cpf){
         if (pauta.sessionExpired()) throw new ResourceNotFoundException("Sessão expirada.");
         if (pauta.cpfAlreadyVoted(cpf)) throw new CpfDuplicadoException("Voto já foi realizado por esse associado.");
+        logger.info("Validando CPF {} em API Externa", cpf);
 //        if(!validarCpf.validar(cpf)) throw new RequiredObjectIsNullException("Associado não pode realizar o voto.");
         return true;
     }

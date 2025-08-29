@@ -15,7 +15,7 @@ public class CpfValidationIntegrationTest {
 
     @Test
     void deveLancarExcecaoQuandoApiIndisponivel() {
-        String cpfTeste = "99999999999";
+        String cpfTeste = "99999999991";
 
         assertThrows(CpfUnableException.class, () -> {
             validarCpf.validar(cpfTeste);

@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface PautaRepository  extends MongoRepository<Pauta, String> {
 
-    public List<Pauta> findBySessionOpenTrueAndSessionClosedFalse();
+    List<Pauta> findBySessionOpenTrueAndSessionClosedFalse();
 }

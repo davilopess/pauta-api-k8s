@@ -51,7 +51,7 @@ public class SessaoServiceImpl implements SessaoService {
         Pauta pauta = pautaRepository.findById(votoDTO.getPautaId())
                 .orElseThrow(() -> new ResourceNotFoundException("Pauta nao informada para esse ID!"));
 
-//        validateVoteInSession(pauta, votoDTO.getAssociadoCpf());
+        validateVoteInSession(pauta, votoDTO.getAssociadoCpf());
         Voto voto = new Voto();
         voto.setVoto(votoDTO.getVoto());
         voto.setAssociadoCpf(votoDTO.getAssociadoCpf());
@@ -77,7 +77,7 @@ public class SessaoServiceImpl implements SessaoService {
     public boolean validateVoteInSession(Pauta pauta, String cpf){
         if (pauta.sessionExpired()) throw new ResourceNotFoundException("Sessão expirada.");
         if (pauta.cpfAlreadyVoted(cpf)) throw new CpfDuplicadoException("Voto já foi realizado por esse associado.");
-        if(!validarCpf.validar(cpf)) throw new RequiredObjectIsNullException("Associado não pode realizar o voto.");
+//        if(!validarCpf.validar(cpf)) throw new RequiredObjectIsNullException("Associado não pode realizar o voto.");
         return true;
     }
 

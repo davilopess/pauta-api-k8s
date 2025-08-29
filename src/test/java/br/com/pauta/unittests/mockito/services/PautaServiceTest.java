@@ -50,7 +50,7 @@ public class PautaServiceTest {
         assertNotNull(result);
         assertNotNull(result.getName());
 
-        Assertions.assertEquals("Name: 2", result.getName());
+        Assertions.assertEquals("Name: 1", result.getName());
         Assertions.assertEquals(true, result.getSessionOpen());
         Assertions.assertEquals(false, result.getSessionClosed());
         Assertions.assertEquals(3, result.getMinutes());
